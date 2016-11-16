@@ -4,6 +4,8 @@ import OutsideClick from 'ember-outside-click/components/outside-click/component
 const Dropdown = OutsideClick.extend({
   open: false,
 
+  excludedClasses: ['an-excluded-class'],
+
   init() {
     this._super(...arguments)
     this.onOutsideClick = this.onOutsideClick.bind(this)

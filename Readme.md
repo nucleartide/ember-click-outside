@@ -33,6 +33,11 @@ $ ember install ember-outside-click
 
 [See the demo code][3].
 
+#### Excluded classes
+
+Add the `excludedClasses` array property to either the block form or subclass to exclude classes
+from the outside click behavior.
+
 ## Test
 
 As explained by <strong>[@runspired][2]</strong>, jQuery events are somewhat
@@ -60,7 +65,7 @@ test('click outside', function(assert) {
 
 ---
 
-![](https://img.shields.io/badge/license-MIT-blue.svg) 
+![](https://img.shields.io/badge/license-MIT-blue.svg)
 ![](https://img.shields.io/badge/status-stable-green.svg)
 
 > GitHub [@nucleartide](https://github.com/nucleartide) &nbsp;&middot;&nbsp;
