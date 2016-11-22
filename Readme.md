@@ -33,10 +33,18 @@ $ ember install ember-outside-click
 
 [See the demo code][3].
 
-#### Excluded classes
+#### Excluding classes
 
-Add the `excludedClasses` array property to either the block form or subclass to exclude classes
-from the outside click behavior.
+To exclude classes from the outside click behaviour, add the `excludedClasses`
+property to the component.
+
+```hbs
+{{#outside-click excludedClasses=(array 'excluded-class' 'special-toolbar')}}
+  ...
+{{/outside-click}}
+```
+
+[See the demo code][3] to exclude classes via subclassing.
 
 ## Test
 
