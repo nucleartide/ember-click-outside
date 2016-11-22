@@ -16,5 +16,7 @@ body {
 }
 
 .an-excluded-class {
-    padding: 5px;
+  margin-top: 5px;
+  padding: 5px;
+  background-color: #eee;
 }

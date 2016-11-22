@@ -37,13 +37,13 @@ export default Component.extend({
   handleDown(e) {
     if (this.isDestroyed || this.isDestroying) return
 
-    let isExcluded = this.get('excludedClasses').some((excludedClass)=>{
-      if ( (` ${e.target.className} `).replace(/[\n\t]/g, " ").indexOf(` ${excludedClass} `) > -1 ) return true
-
-      return false
+    let isExcluded = this.get('excludedClasses').some((excludedClass) => {
+      return ` ${e.target.className} `.indexOf(` ${excludedClass} `) > -1
     });
 
-    if (!this.element.contains(e.target) && !isExcluded) this.set('isOutside', true)
+    if (!this.element.contains(e.target) && !isExcluded) {
+      this.set('isOutside', true)
+    }
   },
 
   handleUp(e) {
