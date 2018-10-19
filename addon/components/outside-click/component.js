@@ -14,6 +14,7 @@ export default Ember.Component.extend({
   layout,
   classNames: ['outside-click'],
   excludedClasses: [],
+  excludedIds: [],
 
   didInsertElement() {
     this._super(...arguments)
@@ -32,11 +33,15 @@ export default Ember.Component.extend({
   handleDown(e) {
     if (this.isDestroyed || this.isDestroying) return
 
-    let isExcluded = this.get('excludedClasses').some((excludedClass) => {
+    let isClassExcluded = this.get('excludedClasses').some((excludedClass) => {
       return ` ${e.target.className} `.indexOf(` ${excludedClass} `) > -1
     });
+    
+    let isIdExcluded = this.get('excludedIds').some((excludedId) => {
+      return ` ${e.target.id} `.indexOf(` ${excludedId} `) > -1
+    });
 
-    if (!this.element.contains(e.target) && !isExcluded) {
+    if (!(this.element.contains(e.target) || isClassExcluded || isIdExcluded)) {
       this.set('isOutside', true)
     }
   },
