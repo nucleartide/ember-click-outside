@@ -34,11 +34,11 @@ export default Ember.Component.extend({
     if (this.isDestroyed || this.isDestroying) return
 
     let isClassExcluded = this.get('excludedClasses').some((excludedClass) => {
-      return ` ${e.target.className} `.indexOf(` ${excludedClass} `) > -1
+      return e.target.className === excludedClass;
     });
     
     let isIdExcluded = this.get('excludedIds').some((excludedId) => {
-      return ` ${e.target.id} `.indexOf(` ${excludedId} `) > -1
+      return e.target.id === excludedId;
     });
 
     if (!(this.element.contains(e.target) || isClassExcluded || isIdExcluded)) {
